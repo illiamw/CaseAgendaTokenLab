@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DevOpsTesteComponent } from './dev-ops-teste/dev-ops-teste.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './public/login/login.component';
+import { CreateComponent } from './public/create/create.component';
+import { AuthInterceptorService } from './guard/auth-interceptor.service';
+import { RectrictedModule } from './restricted/rectricted.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DevOpsTesteComponent
-  ],
+    LoginComponent,
+    CreateComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    RectrictedModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true,
+   }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

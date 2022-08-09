@@ -1,0 +1,30 @@
+
+
+<form [formGroup]="CreateUser" class="row g-3" (ngSubmit)="onSubmit(CreateUser.value)">
+  <div class="col-md-6">
+    <label for="inputName" class="form-label" >Name</label>
+    <input type="text" class="form-control" id="inputName" formControlName="name" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputLastName" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="inputLastName" formControlName="lastname" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" formControlName="email" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword" formControlName="password" required>
+  </div>
+  <div class="col-12">
+    <p>Formulário: {{CreateUser.valid}}</p>
+    <button type="submit" class=" btn btn-primary" [disabled]="!CreateUser.valid">Sign in</button>
+  </div>
+</form>
+
+
+<div *ngIf="alert != null" [class]="{'alert':true, 'alert-success':alert.type === 0, 'alert-danger':alert.type === 1}" role="alert">
+  {{alert.message}}
+</div>
+

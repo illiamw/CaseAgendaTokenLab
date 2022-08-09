@@ -1,9 +1,12 @@
 import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DevOpsTesteComponent } from './dev-ops-teste/dev-ops-teste.component';
+import { CreateComponent } from './public/create/create.component';
+import { LoginComponent } from './public/login/login.component';
 
 const routes: Routes = [
-  {path: 'teste', component: DevOpsTesteComponent}
+  { path: '',   redirectTo: 'dash-board', pathMatch: 'full' },
+  {path: 'login', component: LoginComponent},
+  {path: 'create', component: CreateComponent}
 ];
 
 @NgModule({

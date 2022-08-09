@@ -1,0 +1,22 @@
+
+
+<form [formGroup]="LoginUser" class="row g-3" (ngSubmit)="onSubmit(LoginUser.value)">
+  <div class="col-md-6">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="email" class="form-control" id="inputEmail" formControlName="email" required>
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword" class="form-label">Password</label>
+    <input type="password" class="form-control" id="inputPassword" formControlName="password" required>
+  </div>
+  <div class="col-12">
+    <p>Formulário: {{LoginUser.valid}}</p>
+    <button type="submit" class=" btn btn-primary" [disabled]="!LoginUser.valid">Log in</button>
+  </div>
+</form>
+
+
+<div *ngIf="alert != null" [class]="{'alert':true, 'alert-success':alert.type === 0, 'alert-danger':alert.type === 1}" role="alert">
+  {{alert.message}}
+</div>
+
