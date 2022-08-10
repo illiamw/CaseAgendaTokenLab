@@ -1,16 +1,16 @@
-import { Alert } from './../../class/alerts';
-import { User } from './../../class/user';
+import { Alert } from '../../class/alerts';
+import { User } from '../../class/user';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginServiceService } from 'src/app/guard/login-service.service';
 
 @Component({
-  selector: 'app-login-component',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css']
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
 
-export class CreateComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
 
   alert : Alert | null = null
   // Formulario de criação de usuario

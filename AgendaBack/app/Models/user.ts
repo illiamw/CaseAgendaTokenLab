@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel, HasMany, hasMany, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, HasMany, hasMany, manyToMany, ManyToMany, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
 import Event from './Event'
 import Guest from './Guest'
 
@@ -30,8 +30,7 @@ export default class User extends BaseModel {
   @hasMany(() => Event)
   public events: HasMany<typeof Event>
 
-  @manyToMany(() => Guest)
-  public skills: ManyToMany<typeof Guest>
+  
 
   @beforeSave()
   public static async hashPassword (user: User) {

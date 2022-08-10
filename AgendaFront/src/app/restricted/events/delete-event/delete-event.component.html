@@ -1,0 +1,38 @@
+
+<div *ngIf="event$ | async as event">
+  <div class="col-md-12">
+    <p>Title </p>
+    <p>{{event.title}}</p>
+  </div>
+  <div class="col-md-12">
+    <p>Description </p>
+    <p>{{event.description}}</p>
+  </div>
+  <div class="col-md-12">
+    <p>Invitation </p>
+    <p>{{event.invitation}}</p>
+  </div>
+  <div class="col-md-6">
+    <p>Start </p>
+    <p>{{event.start}}</p>
+  </div>
+  <div class="col-md-6">
+    <p>Finish </p>
+    <p>{{event.finish}}</p>
+  </div>
+  <form [formGroup]="DeleteEvent" class="row g-3" (ngSubmit)="onSubmit()">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" formControlName="confirm" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault" >
+      You confirm action delete?
+    </label>
+  </div>
+  <div class="col-12">
+    <button type="submit" class=" btn btn-primary" [disabled]="!DeleteEvent.valid">Sign in</button>
+  </div>
+</form>
+
+
+</div>
+
+<app-notify [alert]="alert"></app-notify>

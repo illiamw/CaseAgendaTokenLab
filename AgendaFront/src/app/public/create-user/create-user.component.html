@@ -23,6 +23,8 @@
   </div>
 </form>
 
+<p>teste formulario reactivo externo {{CreateUser.value.name}}</p>
+<input type="text" class="form-control" id="inputName" formControlName="name" [value]="CreateUser.value.name">
 
 <div *ngIf="alert != null" [class]="{'alert':true, 'alert-success':alert.type === 0, 'alert-danger':alert.type === 1}" role="alert">
   {{alert.message}}

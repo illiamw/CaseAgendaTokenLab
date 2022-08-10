@@ -6,15 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './public/login/login.component';
-import { CreateComponent } from './public/create/create.component';
+import { CreateUserComponent } from './public/create-user/create-user.component';
 import { AuthInterceptorService } from './guard/auth-interceptor.service';
 import { RectrictedModule } from './restricted/rectricted.module';
+
+// Agenda Gabriel Missali: https://calendly.com/gabrielmissali/entrevista-tecnica-de-web
+//   Agenda Guilherme Sigoli: https://calendly.com/guis/entrevista-e
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CreateComponent
+    CreateUserComponent
    ],
   imports: [
     BrowserModule,

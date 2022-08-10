@@ -1,0 +1,24 @@
+<div class="">
+  <table class="table table-dark table-striped  align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Invite</th>
+        <th scope="col">accepted?</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let item of listEvents$ |async ; let i=index">
+        <td scope="row">{{i}}</td>
+        <td>{{item.user_email}}</td>
+        <td *ngIf="item.accepted == false">Não</td>
+        <td *ngIf="item.accepted == true">Sim</td>
+
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>

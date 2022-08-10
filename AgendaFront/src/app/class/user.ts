@@ -5,7 +5,7 @@ export class User {
       public name:string|null,
       public lastname: string,
       public email: string,
-      public password: string
+      public password?: string
 
     ) {
 

@@ -29,10 +29,19 @@ export class LoginServiceService {
     return this.http.post<any>(this.API + 'login', user, {responseType: 'json' });
   }
 
-  setSession(authResult: any) {
-    console.log(authResult);
+  getUser(): User{
+    if(this.isLoggedIn()){
+      console.log("user get");
+      console.log(localStorage.getItem('email'));
 
-    console.log(authResult);
+
+      return new User(localStorage.getItem('name'), localStorage.getItem('lastname') +'', localStorage.getItem('email')+'')
+    }else{
+      return new User('','','','')
+    }
+  }
+
+  setSession(authResult: any) {
     // Exmplo de Object
     //   {
     //     "user": {
@@ -51,9 +60,11 @@ export class LoginServiceService {
     //     },
     //     "info": "Login com sucesso!"
     // }
+    console.log("SetSession", authResult);
+
     localStorage.setItem('name', authResult.user.name);
-    localStorage.setItem('lastname', authResult.user.msg);
-    localStorage.setItem('email', authResult.user.firstName);
+    localStorage.setItem('lastname', authResult.user.lastname);
+    localStorage.setItem('email', authResult.user.email);
     localStorage.setItem('id_token', authResult.token.token);
     localStorage.setItem('expires_at', authResult.token.expires_at);
     this.router.navigate(['dash-board']);
