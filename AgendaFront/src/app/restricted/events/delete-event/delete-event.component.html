@@ -1,38 +1,61 @@
+<div class="col-12">
+  <p class="fs-2">Delete event: {{selectID}}</p>
+</div>
+<div *ngIf="event$ | async as event" class="w-100">
+  <div class="row">
+    <div class="col-md-12">
+      <p>Title</p>
+      <p class="allegory1 fw-light fs-6 p-2">{{ event.title }}</p>
+    </div>
+    <div class="col-md-12">
+      <p>Description</p>
+      <p class="allegory1 fw-light fs-6 p-2">{{ event.description }}</p>
+    </div>
 
-<div *ngIf="event$ | async as event">
-  <div class="col-md-12">
-    <p>Title </p>
-    <p>{{event.title}}</p>
-  </div>
-  <div class="col-md-12">
-    <p>Description </p>
-    <p>{{event.description}}</p>
-  </div>
-  <div class="col-md-12">
-    <p>Invitation </p>
-    <p>{{event.invitation}}</p>
-  </div>
-  <div class="col-md-6">
-    <p>Start </p>
-    <p>{{event.start}}</p>
-  </div>
-  <div class="col-md-6">
-    <p>Finish </p>
-    <p>{{event.finish}}</p>
-  </div>
-  <form [formGroup]="DeleteEvent" class="row g-3" (ngSubmit)="onSubmit()">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" formControlName="confirm" value="" id="flexCheckDefault">
-    <label class="form-check-label" for="flexCheckDefault" >
-      You confirm action delete?
-    </label>
-  </div>
-  <div class="col-12">
-    <button type="submit" class=" btn btn-primary" [disabled]="!DeleteEvent.valid">Sign in</button>
-  </div>
-</form>
+    <div class="col-md-12">
+      <p>Invitation</p>
+      <p *ngIf="event.invitation" class="allegory1 fw-light fs-6 p-2">
+        {{ event.invitation }}
+      </p>
+      <p *ngIf="!event.invitation" class="allegory1 fw-light fs-6 p-2">Empty</p>
+    </div>
+    <div class="col-md-6">
+      <p>Start</p>
+      <p class="allegory1 fw-light fs-6 p-2">
+        {{ event.start | date: "short" }}
+      </p>
+    </div>
+    <div class="col-md-6">
+      <p>Finish</p>
+      <p class="allegory1 fw-light fs-6 p-2">
+        {{ event.finish | date: "short" }}
+      </p>
+    </div>
+    <div class="col-12 text-center ">
+      <form [formGroup]="DeleteEvent" class="row g-3" (ngSubmit)="onSubmit()">
+        <div class="form-check text-center ">
 
+          <label class="form-check-label" for="flexCheckDefault">
+            <input
+            class="form-check-input"
+            type="checkbox"
+            formControlName="confirm"
+            id="flexCheckDefault"
+            required
+          />You confirm action delete?
+          </label>
+        </div>
 
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!DeleteEvent.valid"
+        >
+          Sign in
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <app-notify [alert]="alert"></app-notify>

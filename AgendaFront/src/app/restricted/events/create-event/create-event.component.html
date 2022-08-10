@@ -1,15 +1,18 @@
+<div class="col-12">
+  <p class="fs-2">Create event</p>
+</div>
 <form [formGroup]="CreateEvent" class="row g-3" (ngSubmit)="onSubmit(CreateEvent.value)">
   <div class="col-md-12">
     <label for="inputTitle" class="form-label" >Title</label>
-    <input type="text" class="form-control" id="inputTitle" formControlName="title" required>
+    <input type="text" class="form-control" id="inputTitle" formControlName="title" placeholder="My first event" required>
   </div>
   <div class="col-md-12">
     <label for="inputDescription" class="form-label">Description</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" required></textarea>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" maxlength="255" formControlName="description" placeholder="short description" required></textarea>
   </div>
   <div class="col-md-12">
     <label for="inputInvitation" class="form-label">Invitation</label>
-    <input type="text" class="form-control" id="inputInvitation" formControlName="invitation" >
+    <input type="text" class="form-control" id="inputInvitation" formControlName="invitation"  placeholder="exempla@email.com, exempla2@gmail.com">
   </div>
   <div class="col-md-6">
     <label for="inputStart" class="form-label">Start</label>
@@ -20,8 +23,7 @@
     <input type="datetime-local" class="form-control" id="inputFinish" formControlName="finish" required>
   </div>
   <div class="col-12">
-    <p>Formulário: {{CreateEvent.valid}}</p>
-    <button type="submit" class=" btn btn-primary" [disabled]="!CreateEvent.valid">Sign in</button>
+    <button type="submit" class=" btn btn-primary w-100" [disabled]="!CreateEvent.valid">Sign in</button>
   </div>
 </form>
 

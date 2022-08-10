@@ -15,6 +15,7 @@ export class DeleteEventComponent implements OnInit {
 
   alert : Alert | null = null
 
+
   DeleteEvent = new FormGroup({
     confirm: new FormControl('', [Validators.required]),
   });
@@ -29,6 +30,7 @@ export class DeleteEventComponent implements OnInit {
       // PARAMS CHANGED ..
 
       let id = params['id'];
+      this.selectID = id
       this.event$ = this.events.getEvent(id).pipe(
         map(data =>{
           this.alert = new Alert(data.info, 0)

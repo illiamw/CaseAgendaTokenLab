@@ -12,9 +12,9 @@ export default class AuthController {
       const token = await ctx.auth.use('api').attempt(email, password, {
         expiresIn: '30mins',
       })
-      ctx.response.created({user, token, info:'Login com sucesso!'})
+      ctx.response.created({user, token, info:'Login successfully! Redirecting ...'})
     } catch (error) {
-      ctx.response.badRequest({info:'Credencial não confere, ' + error.code})
+      ctx.response.badRequest({info:'Credential does not match, ' + error.code})
     }
   }
 
@@ -28,9 +28,9 @@ export default class AuthController {
       // Insert to the database
       await user.save()
 
-      ctx.response.created({info: 'Registro com sucesso'})
+      ctx.response.created({info: 'Credentials registered successfully! Redirecting ...'})
     } catch (error) {
-      ctx.response.badRequest({info: 'Registro com erro, ' + error.code})
+      ctx.response.badRequest({info: 'Error registration,' + error.code})
     }
   }
 }

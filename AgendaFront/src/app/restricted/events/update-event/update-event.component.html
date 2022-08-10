@@ -1,30 +1,33 @@
-<p> update</p>
+<div class="col-12">
+  <p class="fs-2">Edit event: {{id}}</p>
+</div>
 <div *ngIf="event$ | async as event">
   <form [formGroup]="UpdateEvent" class="row g-3" (ngSubmit)="onSubmit(UpdateEvent.value)">
-    <div class="col-md-12">
-      <label for="inputTitle" class="form-label" >Title</label>
-      <input type="text" class="form-control" id="inputTitle" formControlName="title" required>
-    </div>
-    <div class="col-md-12">
-      <label for="inputDescription" class="form-label">Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" required></textarea>
-    </div>
-    <div class="col-md-12">
-      <label for="inputInvitation" class="form-label">Invitation</label>
-      <input type="text" class="form-control" id="inputInvitation" formControlName="invitation" >
-    </div>
-    <div class="col-md-6">
-      <label for="inputStart" class="form-label">Start</label>
-      <input type="datetime-local" class="form-control" id="inputStart" formControlName="start" required>
-    </div>
-    <div class="col-md-6">
-      <label for="inputFinish" class="form-label">Finish</label>
-      <input type="datetime-local" class="form-control" id="inputFinish" formControlName="finish" required>
-    </div>
-    <div class="col-12">
-      <p>Formulário: {{UpdateEvent.valid}}</p>
-      <button type="submit" class=" btn btn-primary" [disabled]="!UpdateEvent.valid">Sign in</button>
-    </div>
+
+      <div class="col-md-12">
+        <label for="inputTitle" class="form-label" >Title</label>
+        <input type="text" class="form-control" id="inputTitle" formControlName="title" required>
+      </div>
+      <div class="col-md-12">
+        <label for="inputDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="description" required></textarea>
+      </div>
+      <div class="col-md-12">
+        <label for="inputInvitation" class="form-label">Invitation</label>
+        <input type="text" class="form-control" id="inputInvitation" formControlName="invitation"  placeholder="exempla@email.com, exempla2@gmail.com">
+      </div>
+      <div class="col-md-6">
+        <label for="inputStart" class="form-label">Start</label>
+        <input type="datetime-local" class="form-control" id="inputStart" formControlName="start" required>
+      </div>
+      <div class="col-md-6">
+        <label for="inputFinish" class="form-label">Finish</label>
+        <input type="datetime-local" class="form-control" id="inputFinish" formControlName="finish" required>
+      </div>
+      <div class="col-12">
+        <button type="submit" class=" btn btn-primary w-100" [disabled]="!UpdateEvent.valid">Edit</button>
+      </div>
+    
   </form>
 </div>
 

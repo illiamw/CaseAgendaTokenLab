@@ -1,24 +1,26 @@
-<div class="">
-  <table class="table table-dark table-striped  align-middle">
+<div class="col-12">
+  <p class="fs-2">Invited to the event: {{id}}</p>
+</div>
+<div class="table-responsive">
+  <table class="table table-dark table-striped align-middle">
     <thead>
       <tr>
-        <th scope="col">#</th>
+
         <th scope="col">Invite</th>
-        <th scope="col">accepted?</th>
+        <th scope="col">Accepted?</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let item of listEvents$ | async as list; let i = index" >
 
-
-      <tr *ngFor="let item of listEvents$ |async ; let i=index">
-        <td scope="row">{{i}}</td>
-        <td>{{item.user_email}}</td>
-        <td *ngIf="item.accepted == false">Não</td>
-        <td *ngIf="item.accepted == true">Sim</td>
-
+        <td>{{ item.user_email }}</td>
+        <td *ngIf="item.accepted == false">No</td>
+        <td *ngIf="item.accepted == true">Yes</td>
       </tr>
-
-
     </tbody>
   </table>
 </div>
+
+
+
+<app-notify [alert]="alert"></app-notify>

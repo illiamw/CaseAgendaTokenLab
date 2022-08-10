@@ -9,7 +9,7 @@ import { LoginServiceService } from 'src/app/guard/login-service.service';
 export class NavComponent implements OnInit {
 
 
-
+  email = localStorage.getItem('email')
   constructor(private auth:LoginServiceService) { }
 
   ngOnInit() {

@@ -1,32 +1,49 @@
-<div class="col-12">
-  <button type="submit" class=" btn btn-primary" (click)="refresh()">Refresh</button>
+<div  class="row">
+  <div class="col-12">
+    <p class="fs-2">Event invitation notification</p>
+  </div>
+  <div class="col-12 mb-2">
+    <button type="submit" class="btn" (click)="refresh()">
+      <i class="bi bi-arrow-clockwise"></i> Refresh
+    </button>
+  </div>
+  <div class="col-12 mb-2">
+    <div class="table-responsive">
+      <table class="table table-dark align-middle table-hover">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Start</th>
+            <th scope="col">Finish</th>
+            <th scope="col">accepted?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listEvents$ | async; let i = index">
+
+            <td>{{ item.title }}</td>
+            <td>{{ item.start | date: "short" }}</td>
+            <td>{{ item.finish | date: "short" }}</td>
+            <td *ngIf="!item.accepted">
+              <button
+                class="btn bg-success"
+                (click)="accept(item.id ? item.id : -1, true)"
+              >
+                <i class="bi bi-check-circle"></i>
+              </button>
+            </td>
+            <td *ngIf="item.accepted" class="text-center">
+              <button
+                class="btn bg-danger"
+                (click)="accept(item.id ? item.id : -1, false)"
+              >
+                <i class="bi bi-calendar-x"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<div class="">
-  <table class="table table-dark table-striped  align-middle">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Start</th>
-        <th scope="col">Finish</th>
-        <th scope="col">Description</th>
-        <th scope="col">accepted?</th>
-      </tr>
-    </thead>
-    <tbody>
-
-
-      <tr *ngFor="let item of listEvents$ |async ; let i=index">
-        <td scope="row">{{i}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.start | date:'short'}}</td>
-        <td>{{item.finish | date:'short'}}</td>
-        <td>{{item.description}}</td>
-        <td  *ngIf="!item.accepted"><button  class="bi bi-check-circle bg-success" (click)="accept(item.id ? item.id : -1, true)"></button></td>
-        <td *ngIf="item.accepted"><button class="bi bi-calendar-x  bg-danger"  (click)="accept(item.id ? item.id : -1, false)"></button></td>
-      </tr>
-
-
-    </tbody>
-  </table>
-</div>
+<app-notify [alert]="alert"></app-notify>

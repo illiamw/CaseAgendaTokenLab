@@ -15,6 +15,8 @@ export class InvitationEventComponent implements OnInit {
 
   listEvents$!: Observable<Invite[]>;
 
+  id: number | null = null
+
   constructor(
     private events: EventsService,
     private route: ActivatedRoute,
@@ -34,6 +36,7 @@ export class InvitationEventComponent implements OnInit {
       // PARAMS CHANGED ..
 
       let id = params['id'];
+      this.id = id
       this.listEvents$ = this.events.readGuest(id).pipe(
         map((data) => {
           console.log(data);
@@ -48,6 +51,8 @@ export class InvitationEventComponent implements OnInit {
           const transformData: Array<Invite> = data.guestsResultado;
           console.log(transformData);
 
+          if(transformData.length == 0)
+            this.alert = new Alert("There are no guests", 0);
           return transformData;
         }),
 

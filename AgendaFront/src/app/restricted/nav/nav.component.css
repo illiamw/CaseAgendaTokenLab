@@ -1,0 +1,7 @@
+#cursor{
+  cursor: pointer;
+}
+
+.offcanvas-body > ul > ul> li{
+  padding: 1rem;
+}

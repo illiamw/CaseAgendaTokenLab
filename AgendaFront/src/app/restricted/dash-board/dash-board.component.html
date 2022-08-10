@@ -1,4 +1,15 @@
 <app-nav></app-nav>
-<router-outlet></router-outlet>
-<app-read-event></app-read-event>
 
+<div class="container d-flex flex-column justify-content-around">
+  <div class="flex-grow-1"></div>
+  <div class="flex-fill  align-self-center fw-bold fw-6">
+    <div class="event">
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  <div class="flex-grow-1 fs-6">
+    <app-read-event></app-read-event>
+  </div>
+</div>

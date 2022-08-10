@@ -1,22 +1,64 @@
+<div class="container d-flex flex-column justify-content-center vh-100 fw-bold">
+  <div class="flex-grow-1"></div>
+  <div class="flex-fill min-width align-self-center">
+    <div class="user">
+      <div class="row">
+      <form
+        [formGroup]="LoginUser"
+        class="row g-3"
+        (ngSubmit)="onSubmit(LoginUser.value)"
+      >
+        <div class="col-sd-12 pt-xs-5">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            formControlName="email"
+            required
+          />
+        </div>
+        <div class="col-sd-12 pt-xs-5">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            formControlName="password"
+            required
+          />
+          <p>Never accessed, <a class="text-white mt-3" [routerLink]="['../create']">Sign in</a>!</p>
+        </div>
 
 
-<form [formGroup]="LoginUser" class="row g-3" (ngSubmit)="onSubmit(LoginUser.value)">
-  <div class="col-md-6">
-    <label for="inputEmail" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail" formControlName="email" required>
+
+          <button
+            type="submit"
+            class="btn btn-primary  w-100"
+            [disabled]="!LoginUser.valid"
+          >
+            Log in
+          </button>
+
+      </form>
+    </div>
   </div>
-  <div class="col-md-6">
-    <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword" formControlName="password" required>
   </div>
-  <div class="col-12">
-    <p>Formulário: {{LoginUser.valid}}</p>
-    <button type="submit" class=" btn btn-primary" [disabled]="!LoginUser.valid">Log in</button>
+  <div class="flex-grow-1">
+    <div
+      *ngIf="alert != null"
+      [class]="{
+        alert: true,
+        'alert-success': alert.type === 0,
+        'alert-danger': alert.type === 1
+      }"
+      role="alert"
+    >
+      {{ alert.message }}
+    </div>
   </div>
-</form>
-
-
-<div *ngIf="alert != null" [class]="{'alert':true, 'alert-success':alert.type === 0, 'alert-danger':alert.type === 1}" role="alert">
-  {{alert.message}}
 </div>
+
+
+
 

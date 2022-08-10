@@ -1,32 +1,77 @@
+<div class="container d-flex flex-column justify-content-center vh-100 fw-bold">
+  <div class="flex-grow-1"></div>
+  <div class="flex-fill min-width align-self-center">
+    <div class="user">
+      <form
+        [formGroup]="CreateUser"
+        class="row g-3"
+        (ngSubmit)="onSubmit(CreateUser.value)"
+      >
+        <div class="col-md-6 pt-xs-5">
+          <label for="inputName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputName"
+            formControlName="name"
+            required
+          />
+        </div>
+        <div class="col-md-6 pt-xs-5">
+          <label for="inputLastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLastName"
+            formControlName="lastname"
+            required
+          />
+        </div>
+        <div class="col-md-6 pt-xs-5">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            formControlName="email"
+            required
+          />
+        </div>
+        <div class="col-md-6 pt-xs-5">
+          <label for="inputPassword" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            formControlName="password"
+            required
+          />
+        </div>
+        <p>Already accessed,  <a class="text-white mt-3" [routerLink]="['../login']">Log in</a>!</p>
 
+        <div class="col-12 pt-xs-5 text-center">
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="!CreateUser.valid"
+          >
+            Sign in
+          </button>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="flex-grow-1"><div
+    *ngIf="alert != null"
+    [class]="{
+      'alert': true,
+      'alert-success': alert.type === 0,
+      'alert-danger': alert.type === 1
+    }"
+    role="alert"
+  >
+    {{ alert.message }}
+  </div></div>
 
-<form [formGroup]="CreateUser" class="row g-3" (ngSubmit)="onSubmit(CreateUser.value)">
-  <div class="col-md-6">
-    <label for="inputName" class="form-label" >Name</label>
-    <input type="text" class="form-control" id="inputName" formControlName="name" required>
-  </div>
-  <div class="col-md-6">
-    <label for="inputLastName" class="form-label">Last Name</label>
-    <input type="text" class="form-control" id="inputLastName" formControlName="lastname" required>
-  </div>
-  <div class="col-md-6">
-    <label for="inputEmail" class="form-label">Email</label>
-    <input type="email" class="form-control" id="inputEmail" formControlName="email" required>
-  </div>
-  <div class="col-md-6">
-    <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword" formControlName="password" required>
-  </div>
-  <div class="col-12">
-    <p>Formulário: {{CreateUser.valid}}</p>
-    <button type="submit" class=" btn btn-primary" [disabled]="!CreateUser.valid">Sign in</button>
-  </div>
-</form>
-
-<p>teste formulario reactivo externo {{CreateUser.value.name}}</p>
-<input type="text" class="form-control" id="inputName" formControlName="name" [value]="CreateUser.value.name">
-
-<div *ngIf="alert != null" [class]="{'alert':true, 'alert-success':alert.type === 0, 'alert-danger':alert.type === 1}" role="alert">
-  {{alert.message}}
 </div>
-

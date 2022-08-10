@@ -1,3 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
 @import ~bootstrap/dist/css/bootstrap.min.css
 @import ~bootstrap-icons/font/bootstrap-icons.css
+
+
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import ~node_modules/bootstrap/scss/functions
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import ~node_modules/bootstrap/scss/variables
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import ~node_modules/bootstrap/scss/maps
+@import ~node_modules/bootstrap/scss/mixins
+@import ~node_modules/bootstrap/scss/root
+
+// 6. Optionally include any other parts as needed
+@import ~node_modules/bootstrap/scss/utilities
+@import ~node_modules/bootstrap/scss/reboot
+@import ~node_modules/bootstrap/scss/type
+@import ~node_modules/bootstrap/scss/images
+@import ~node_modules/bootstrap/scss/containers
+@import ~node_modules/bootstrap/scss/grid
+@import ~node_modules/bootstrap/scss/helpers
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import ~node_modules/bootstrap/scss/utilities/api
+
+// 8. Add additional custom code here
+
+$font-stack: Helvetica, sans-serif
+
+
+$color1: $orange-400
+$color2: $red-400
+$color3: $teal-600
+$color4: $teal-800
+$colorGrey: $gray-600
+$colorBlack: $black
+$colorwhite: $white
+
+
+
+@mixin theme($theme: DarkGray)
+  background: $theme
+  box-shadow: 0 10px 10px rgba($theme, .25)
+  color: #fff
+  border-radius: var(--bs-border-radius-xl) !important
+  padding: 1.5rem
+  margin-top: 2rem
+  margin-bottom: 1.5rem
+
+.event
+  @include theme($theme: $color2)
+
+.user
+  @include theme($theme: $color1)
+
+.invite
+  @include theme($theme: $color3)
+
+.table-responsive
+  max-height: 200px
+  font-size: smaller
+
+
+.min-width
+  width: fit-content
+
+.container
+  margin-top: 2.5rem
+
+body
+  font: 100% $font-stack
+  color: $colorBlack
+  height: 100%

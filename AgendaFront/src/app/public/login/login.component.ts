@@ -46,7 +46,11 @@ export class LoginComponent implements OnInit {
           this.alert = new Alert(data.info, 0)
         }
 
-        this.login.setSession(data)
+        setTimeout(() => {
+          this.login.setSession(data)     }
+        , 3000);
+
+
 
 
       }, (error) =>{

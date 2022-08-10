@@ -3,6 +3,7 @@ import { User } from '../../class/user';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginServiceService } from 'src/app/guard/login-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -22,7 +23,7 @@ export class CreateUserComponent implements OnInit {
   });
 
 
-  constructor(private login: LoginServiceService) { }
+  constructor(private login: LoginServiceService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -46,6 +47,10 @@ export class CreateUserComponent implements OnInit {
           if(data.info != null){
             this.alert = new Alert(data.info, 0)
           }
+
+          setTimeout(() => {
+            this.router.navigate(['dash-board'])      }
+          , 3000);
 
 
         },

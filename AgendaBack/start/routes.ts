@@ -21,17 +21,19 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
+  // CRUD - event operations
   Route.post('/rectricted/create', 'EventsController.create')
+  Route.post('/rectricted/read', 'EventsController.read')
   Route.post('/rectricted/delete', 'EventsController.delete')
   Route.post('/rectricted/update', 'EventsController.update')
-
+  // Guest operations
   Route.post('/rectricted/accept', 'EventsController.accept')
   Route.post('/rectricted/readInvate', 'EventsController.readInvate')
-  Route.post('/rectricted/read', 'EventsController.read')
   Route.get('/rectricted/getEvent/:id', 'EventsController.getEvent')
   Route.get('/rectricted/readGuest/:id', 'EventsController.readGuest')
 }).middleware('auth')
 
+//User control operations
 Route.post('/login', 'AuthController.login')
 Route.post('/create', 'AuthController.create')
 

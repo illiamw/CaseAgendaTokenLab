@@ -10,8 +10,9 @@ import { ReadEventComponent } from './events/read-event/read-event.component';
 import { UpdateEventComponent } from './events/update-event/update-event.component';
 import { DeleteEventComponent } from './events/delete-event/delete-event.component';
 import { InvitationEventComponent } from './events/invitation-event/invitation-event.component';
-import { NotifyComponent } from './events/atomic/notify/notify.component';
+
 import { InviteNotifyEventComponent } from './events/invite-notify-event/invite-notify-event.component';
+import { NotifyComponent } from './events/atomic/notify/notify.component';
 
 
 @NgModule({
