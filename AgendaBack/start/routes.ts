@@ -37,3 +37,7 @@ Route.group(() => {
 Route.post('/login', 'AuthController.login')
 Route.post('/create', 'AuthController.create')
 
+//Availability test
+Route.get('',({ response }) => {
+  response.send('hello world')
+})

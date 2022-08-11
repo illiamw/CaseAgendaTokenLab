@@ -24,12 +24,16 @@ export default class AuthController {
     try {
       // Assign username and email
       const user = await User.create(ctx.request.all())//Seriable
+      console.log(user);
 
       // Insert to the database
       await user.save()
+      console.log("Rolou");
 
       ctx.response.created({info: 'Credentials registered successfully! Redirecting ...'})
     } catch (error) {
+      console.log(error);
+
       ctx.response.badRequest({info: 'Error registration,' + error.code})
     }
   }
