@@ -41,3 +41,8 @@ Route.post('/create', 'AuthController.create')
 Route.get('',({ response }) => {
   response.send('hello world')
 })
+
+//Availability test
+Route.get('/teste',({ response }) => {
+  response.send('hello world')
+})
