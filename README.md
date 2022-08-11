@@ -39,17 +39,7 @@ Poderá ser utilizada a linguagem e o banco de dados de preferência do desenvol
 Não será necessário fazer deploy em servidor, apenas apresentação na máquina do candidato e envio antecipado do código, mas se quiser pode.
 Pense no polimento do seu projeto, na qualidade do código e em boas práticas de projetos em produção.
 
+#link build em produção
+[https://agendatoken.web.app/](https://agendatoken.web.app/)
 
-Orientações:
--> O prazo para a entrega do projeto é de 1 (uma) semana. Esse material pode ser revisitado quantas vezes precisar até que responda à ele com o link do seu desafio.
-
--> Utilize um dos links abaixo para marcar a entrevista e apresentação do desafio:
-Agenda Gabriel Missali: https://calendly.com/gabrielmissali/entrevista-tecnica-de-web
-Agenda Guilherme Sigoli: https://calendly.com/guis/entrevista-e
-
--> Ao finalizar o desafio, responda esta pergunta com o link do repositório (GitHub, Bitbucket etc..)
-
-Preparamos este vídeo para você conhecer um pouco mais sobre a área de web na Tokenlab. https://youtu.be/WpMBQBGPHl4
-É importante você assisti-lo antes da entrevista técnica, assim poderá tirar suas dúvidas na entrevista, ok?
-
-Bom desafio!
+https://agendatoken.web.app/
