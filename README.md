@@ -45,5 +45,5 @@ Pense no polimento do seu projeto, na qualidade do código e em boas práticas d
 
 # Modelos
 
-[Modelos UML e Caso de USO](https://agendatoken.web.app/](https://drive.google.com/drive/folders/1OWdjFrVxDhAkH81thDj1w3jKmwO69OZ7?usp=sharing)
+[Modelos UML e Caso de USO](https://drive.google.com/drive/folders/1OWdjFrVxDhAkH81thDj1w3jKmwO69OZ7?usp=sharing)
 
