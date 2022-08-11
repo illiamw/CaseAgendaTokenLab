@@ -1,9 +1,9 @@
 version: '3.4'
 
 services:
-  AgendaFront:
-    container_name: AgendaFront
-    image: AgendaFront
+  agendafront:
+    container_name: agendafront
+    image: agendafront
     build: .
     ports:
       - 8081:80

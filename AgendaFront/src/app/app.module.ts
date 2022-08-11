@@ -11,11 +11,6 @@ import { AuthInterceptorService } from './guard/auth-interceptor.service';
 import { RectrictedModule } from './restricted/rectricted.module';
 
 
-// Agenda Gabriel Missali: https://calendly.com/gabrielmissali/entrevista-tecnica-de-web
-//   Agenda Guilherme Sigoli: https://calendly.com/guis/entrevista-e
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
